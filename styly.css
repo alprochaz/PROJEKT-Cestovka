@@ -1,0 +1,263 @@
+/* intuitivnejší box-sizing */       /*celkovy cas cca 4h*/
+html { box-sizing: border-box; }
+*, ::after, ::before { box-sizing: inherit; }
+
+body {
+	margin: 0;
+	padding: 20px;
+	font-size: 16px;
+    font-family: "Montserrat", sans-serif;
+}
+
+:root {
+    --primary: #F03000;
+    --light-gray: #F0F0F0; /*pozadi card a news*/
+    --dark-gray: #888888;  /*datumy*/
+    
+}
+
+.header {
+    margin-bottom: 30px;
+}
+
+.logo__image {
+    display: block;
+    margin-inline: auto;
+    margin-block: 16px 30px;
+}
+
+.menu {
+	list-style: none;
+    padding: 0px;
+
+	margin: 0;
+    display: flex;
+
+}
+
+.menu__item {
+	text-align: center;
+	flex-basis: calc(100% / 3);
+	
+}
+
+.menu__link {
+	text-decoration: none;
+	color: var(--primary);
+    font-size: 18px;
+    font-weight: 500;  /*v zadani sice normal, ale u mne to vypada jinak*/
+	display: block;
+	padding: 20px;
+}
+
+.menu__link:hover {
+    background-color: var(--primary);
+    color: white;
+}
+
+.offer {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 240px 150px 150px;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.product {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+    color: white;
+    padding: 20px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.product__price {
+    background-color: var(--primary);
+    padding: 10px;
+
+}
+
+.product__title {
+    font-size: 20px;
+    margin: 0;
+}
+.product--big .product__title {
+    font-size: 28px;
+}
+
+.product__description {
+    margin-bottom: 0;
+}
+
+.product--1 {
+    background-image: url(images/palmy.png);
+
+}
+
+.product--2 {
+    background-image: url(images/jezero2.png);
+
+}
+
+.product--3 {
+    background-image: url(images/nakole.png);
+
+}
+
+.services {
+    display: grid;
+    gap: 20px;
+}
+
+.card {
+    background-color: var(--light-gray);
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+}
+
+.card__icon {
+    flex-basis: 25%;
+}
+
+.card__svg {
+    display: block;
+    margin-inline: auto;
+}
+
+.card__title {
+    margin: 0;
+    color: var(--primary);
+    font-size: 18px;
+}
+
+.card__description {
+    margin-bottom: 0;
+}
+
+h3 {
+    font-size: 24px;
+    margin-block: 40px 20px;
+}
+.product--LM1 {
+    background-image: url(images/lodicka.png);
+}
+
+.product--LM2 {
+    background-image: url(images/podkova.png);
+}
+
+.product--LM3 {
+    background-image: url(images/zatoka.png);
+}
+
+.container-news {
+    display: grid;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.news {
+    background-color: var(--light-gray);
+    padding: 20px;
+}
+
+.news__date {
+    color: var(--dark-gray);
+    margin-block: 0px 10px;
+}
+
+.news__title {
+    color: var(--primary);
+    font-weight: 600;
+    margin-block: 0px 10px;
+}
+
+.news__description {
+    margin-block: 0px;
+
+}
+
+.footer {
+    background-color: #444444;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+
+/*------------------TABLET----------------------------------------*/
+@media screen and (min-width: 768px) {
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+        margin-bottom: 40px;
+    }
+
+    .menu {
+        justify-content: end;
+    }
+
+    .menu__item {
+        flex-basis: auto;
+    }
+
+    .logo__image {
+        margin: 0;
+        margin-left: 20px;
+    }
+
+    .offer {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 380px 180px;
+    }
+
+    .product{
+        margin: 0;
+    }
+
+    .product--big {
+        grid-column: span 2;
+    }
+
+    .services {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    }
+
+/*-------------------PC---------------------------*/
+@media screen and (min-width: 960px) {
+    .offer {
+        grid-template-columns: 2fr 1fr;
+        grid-template-rows: 180px 180px;
+    }
+
+    .product--big {
+        grid-column: span 1;
+        grid-row: span 2;
+    }
+
+    .services {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .last-minute {
+        grid-template-columns: 1fr 2fr;
+        grid-auto-flow: dense;
+    }
+    .product--LM1 {
+        grid-column: 2;
+    }
+
+    .container-news {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+	
